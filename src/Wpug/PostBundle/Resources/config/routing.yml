@@ -1,0 +1,4 @@
+wpug_post_category:
+    resource: "@WpugPostBundle/Resources/config/routing/category.xml"
+    prefix:   /category
+

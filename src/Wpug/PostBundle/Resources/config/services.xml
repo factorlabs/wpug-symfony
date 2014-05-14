@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="wpug_post.event_listener.post_logger.class">Wpug\PostBundle\EventListener\PostLogger</parameter>
+    </parameters>
+
+    <services>
+        <service id="wpug_post.event_listener.post_logger" class="%wpug_post.event_listener.post_logger.class%">
+            <argument type="service" id="logger"/>
+            <tag name="kernel.event_listener" event="post.update" method="onPostCreateEvent" />
+        </service>
+        <service id="security.access.post_document_voter"
+            class="Wpug\PostBundle\Security\Authorization\Voter\PostVoter"
+            public="false">
+            <tag name="security.voter" />
+        </service>
+    </services>
+
+</container>

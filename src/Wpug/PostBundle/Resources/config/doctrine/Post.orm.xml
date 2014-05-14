@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity repository-class="Wpug\PostBundle\Entity\PostRepository" name="Wpug\PostBundle\Entity\Post">
+    <many-to-one field="category" target-entity="Category" inversed-by="posts">
+      <cascade>
+        <cascade-all/>
+      </cascade>
+    </many-to-one>
+    <id name="id" type="guid" column="id">
+      <generator strategy="UUID"/>
+    </id>
+    <field name="title" type="string" column="title" length="100"/>
+    <field name="body" type="text" column="body"/>
+    <field name="private" type="boolean" column="is_private"/>
+  </entity>
+</doctrine-mapping>

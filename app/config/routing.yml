@@ -1,0 +1,4 @@
+wpug_post:
+    resource: "@WpugPostBundle/Resources/config/routing.xml"
+    prefix:   /
+
