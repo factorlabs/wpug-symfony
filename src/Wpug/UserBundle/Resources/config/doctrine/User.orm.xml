@@ -4,5 +4,6 @@
     <id name="id" type="integer" column="id">
       <generator strategy="AUTO"/>
     </id>
+    <!-- <field name="pesel" type="string" column="pesel" length="11" /> -->
   </entity>
 </doctrine-mapping>

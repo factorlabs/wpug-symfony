@@ -11,6 +11,6 @@
     </id>
     <field name="title" type="string" column="title" length="100"/>
     <field name="body" type="text" column="body"/>
-    <field name="private" type="boolean" column="is_private"/>
+    <field name="private" type="boolean" column="is_private" nullable="true" />
   </entity>
 </doctrine-mapping>
