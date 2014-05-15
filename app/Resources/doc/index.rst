@@ -9,10 +9,12 @@ This project aims to provide a samples of some major Symfony2 features:
 * CRUD
 * Thin Controllers
 * Twig extension
+* Validations
 * Services configuration
 * Events, Events Dispatchers, Event Listeners
 * Voters
 * Basic configuration of FOSUserBundle
+* Translations
 * Testing
 
 Learn with tasks:
