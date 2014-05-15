@@ -14,6 +14,7 @@ This project aims to provide a samples of some major Symfony2 features:
 * Events, Events Dispatchers, Event Listeners
 * Voters
 * Basic configuration of FOSUserBundle
+* REST
 * Translations
 * Testing
 
@@ -85,3 +86,11 @@ Learn with tasks:
  - Create Unit Test for previously created Twig extension
  - Where it should be placed and how to use testing framework?
  - To test class, use PHPUnit data providers
+
+* Simple REST [@rest, @simple-rest]
+ - Using cURL or your favourite client  try to request PostController with GET and POST methods
+ - To call your controller (POST, PUT, DELETE) from remote (the easiest, not recommended way) you must disable CSRF protection
+ - To call a service: If you are using Firefox RESTClient plugin, set header: "Content-Type: application/x-www-form-urlencoded"
+ - Add request body: "wpug_postbundle_post[title]=Title of post sent over REST&wpug_postbundle_post[body]=Text&wpug_postbundle_post[submit]=&wpug_postbundle_post[private]=&wpug_postbundle_post[category]="
+ - (Remember to check HTTP method of endpoint that you call)
+ - The recommended way to created REST service is to use FOSRestBundle 

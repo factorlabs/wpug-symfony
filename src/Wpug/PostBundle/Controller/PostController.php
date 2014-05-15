@@ -40,7 +40,6 @@ class PostController extends Controller
         $entity = new Post();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
-
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);

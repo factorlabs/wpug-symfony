@@ -28,7 +28,9 @@ class PostType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Wpug\PostBundle\Entity\Post'
+            'data_class' => 'Wpug\PostBundle\Entity\Post',
+            //@rest, @simple-rest
+            'csrf_protection' => false
         ));
     }
 
