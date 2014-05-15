@@ -62,7 +62,6 @@ class PostVoter implements VoterInterface
             //die($user);
             return VoterInterface::ACCESS_DENIED;
         }
-
         switch($attribute) {
             case 'view':
                 // the data object could have for example a method isPrivate()
