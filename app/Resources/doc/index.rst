@@ -5,7 +5,7 @@ This project aims to provide a samples of some major Symfony2 features:
 * ORM configuration
 * Entities and Repositories
 * Doctrine Assotiations
-* YML and XML Configuration
+* YAML and XML Configuration
 * CRUD
 * Thin Controllers
 * Twig extension
@@ -42,6 +42,14 @@ Learn with tasks:
  - Create Twig extension which will power the number
  - Try to describe services.xml configuration
  
+* Routing basics (`Ref <http://symfony.com/doc/current/book/routing.html#advanced-routing-example>`_)
+ - Create new Controller and name it "Varia"
+ - Add new action: testTwigExtensionAction
+ - configure the routing to route test-twig/<number> calls to previously created action
+ - <number> parameter should accept only numbers (min length is 2, max length is 10)
+ - You can use http://rubular.com to check your expression
+ - In Twig call your extension
+ 
 * Events
  - Create an event which will terminate the flow (use die or exit) when the post is being save
  - Where Event should be placed?
@@ -55,9 +63,9 @@ Learn with tasks:
  - Find out some features how to work with logger
 
 * Documentation
- - In your Bundle create sample documentation following Symfony2 convention (ReStructuredText, http://docutils.sourceforge.net/docs/user/rst/quickstart.html)
- - Find out some information on Symfony2 page: http://symfony.com/doc/current/contributing/documentation/format.html
- - Find out some information on Sphinx page: http://sphinx-doc.org/tutorial.html
+ - In your Bundle create sample documentation following Symfony2 convention (`ReStructuredText  <http://docutils.sourceforge.net/docs/user/rst/quickstart.html>`_)
+ - Find out some information on `Symfony2 page <http://symfony.com/doc/current/contributing/documentation/format.html>`_
+ - Find out some information on `Sphinx page <http://sphinx-doc.org/tutorial.html>`_
 
 * Testing I
  - Create Unit Test for previously created Twig extension
