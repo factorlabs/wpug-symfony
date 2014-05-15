@@ -1,4 +1,4 @@
-Symfony Standard Edition
+WPUG project to learn Symfony
 ========================
 
 Welcome to the Symfony Standard Edition - a fully-functional Symfony2
