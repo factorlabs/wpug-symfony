@@ -34,7 +34,8 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ ]
+    #@assetic
+    bundles:        [WpugPostBundle]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~

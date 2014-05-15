@@ -1,0 +1,21 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <!-- @twig, @twig-basics -->
+    <a href="{{ item.href }}">{{ item.caption }}</a><br>
+    {{ item.caption|lower }}<br>
+    {% for i in 0..5 %}
+        <div class="{{ cycle(['odd', 'even'], i) }}">
+            <p>{{i}}</p>
+        </div>
+    {% endfor %}
+    {{ include(
+        'WpugPostBundle:Varia:testInclusion.html.twig',
+        { 'object': item }
+    ) }}<br>
+    <a href="{{ path('post') }}">Post</a><br>
+    <!-- @assetic -->
+    {% image '@WpugPostBundle/Resources/public/images/logo_symfony.png' %}
+        <img src="{{ asset_url }}" alt="Example"/>
+    {% endimage %}
+{% endblock %}

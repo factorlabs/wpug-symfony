@@ -34,4 +34,18 @@ class VariaController extends Controller
             'price' => $price,
         ));
     }
+    /**
+     * Test Twig basics.
+     *
+     */
+    public function testTwigBasicsAction()
+    {
+        $obj = new \stdClass();
+        $obj->href = "http://wpug.pl";
+        $obj->caption = "WPUG";
+
+        return $this->render('WpugPostBundle:Varia:testTwigBasics.html.twig',array(
+            'item' => $obj,
+        ));
+    }
 }

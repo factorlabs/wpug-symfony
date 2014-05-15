@@ -15,5 +15,8 @@
         <requirement key="_locale">en|pl</requirement>
         <requirement key="name">[a-zA-Z\s]{2,20}</requirement>
     </route>
+    <route id="test_twig_basics" pattern="test-twig-basics">
+        <default key="_controller">WpugPostBundle:Varia:testTwigBasics</default>
+    </route>
 
 </routes>
