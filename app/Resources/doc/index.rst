@@ -45,7 +45,7 @@ Learn with tasks:
 * Routing basics (`Ref <http://symfony.com/doc/current/book/routing.html#advanced-routing-example>`_)
  - Create new Controller and name it "Varia"
  - Add new action: testTwigExtensionAction
- - configure the routing to route test-twig/<number> calls to previously created action
+ - configure the routing to route test-twig-extension/<number> calls to previously created action
  - <number> parameter should accept only numbers (min length is 2, max length is 10)
  - You can use http://rubular.com to check your expression
  - In Twig call your extension

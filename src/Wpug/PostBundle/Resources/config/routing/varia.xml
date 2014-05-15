@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- @routing -->
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+    <!-- @twig, @service-container, @twig-extension -->
+    <route id="test_twig_extension" pattern="test-twig-extension/{price}">
+        <default key="_controller">WpugPostBundle:Varia:testTwigExtension</default>
+        <default key="price">0</default>
+        <requirement key="price">[0-9]{2,10}</requirement>
+    </route>
+    <!-- @i18n, @translation, @l10n -->
+    <route id="test_translation" pattern="{_locale}/test-translation/{name}">
+        <default key="_controller">WpugPostBundle:Varia:testTranslation</default>
+        <requirement key="_locale">en|pl</requirement>
+        <requirement key="price">[a-zA-Z\s]{2,20}</requirement>
+    </route>
+
+</routes>

@@ -1,0 +1,6 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <p>{{ price|price }}</p>
+    <p>{{ '5500.25155'|price(4, ',', '') }}</p>
+{% endblock %}
