@@ -9,14 +9,20 @@
     </parameters>
 
     <services>
+        <!-- @event, @event-dispatche, @event-listener -->
         <service id="wpug_post.event_listener.post_logger" class="%wpug_post.event_listener.post_logger.class%">
             <argument type="service" id="logger"/>
             <tag name="kernel.event_listener" event="post.update" method="onPostCreateEvent" />
         </service>
+        <!-- @security, @voter -->
         <service id="security.access.post_document_voter"
             class="Wpug\PostBundle\Security\Authorization\Voter\PostVoter"
             public="false">
             <tag name="security.voter" />
+        </service>
+        <!-- @twig, @twig-extension -->
+        <service id="wpug.twig.price_filter_extension" class="Wpug\PostBundle\Twig\PriceFilterExtension">
+            <tag name="twig.extension" />
         </service>
     </services>
 
