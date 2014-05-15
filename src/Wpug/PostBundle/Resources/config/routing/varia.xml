@@ -13,7 +13,7 @@
     <route id="test_translation" pattern="{_locale}/test-translation/{name}">
         <default key="_controller">WpugPostBundle:Varia:testTranslation</default>
         <requirement key="_locale">en|pl</requirement>
-        <requirement key="price">[a-zA-Z\s]{2,20}</requirement>
+        <requirement key="name">[a-zA-Z\s]{2,20}</requirement>
     </route>
 
 </routes>
