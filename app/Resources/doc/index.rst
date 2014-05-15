@@ -22,52 +22,64 @@ Learn with tasks:
  - Try to describe the directory structure (app/, src/, web/, vendor/)
  - Check .gitignore configuration and try to explain it
  
-* Bundles
+* Bundles [@bundle]
  - Generate new Bundle with name of your company in namespace
  - Use XML as configuration
  - Try to describe the directory structure and how it follow PSR standard
  - Check application routing and AppKernel.php
 
-* Entities assotiations
+* Entities associations [@entity, @association, @doctrine]
  - Create two Entities - Post, Category - with one-to-many assotiation (I think you gues how)
  - Assotiation should be bidirectional
  - Use XML as configuration
 
-* CRUD
+* CRUD [@crud]
  - For Entities created in previous step generate CRUD
  - Use XML as configuration
  - Try to describe created folders and files (views, controllers,forms, routing)
  
-* Services I
+* Services [@service-container]
  - Create Twig extension which will power the number
  - Try to describe services.xml configuration
  
-* Routing basics (`Ref <http://symfony.com/doc/current/book/routing.html#advanced-routing-example>`_)
+* Routing (`Ref <http://symfony.com/doc/current/book/routing.html#advanced-routing-example>`_) [@routing]
  - Create new Controller and name it "Varia"
  - Add new action: testTwigExtensionAction
  - configure the routing to route test-twig-extension/<number> calls to previously created action
- - <number> parameter should accept only numbers (min length is 2, max length is 10)
+ - <number> parameter should accept only digits (min length is 2, max length is 10)
  - You can use http://rubular.com to check your expression
  - In Twig call your extension
  
-* Events
+* Events [@event, @event-dispatche, @event-listener]
  - Create an event which will terminate the flow (use die or exit) when the post is being save
  - Where Event should be placed?
  - Where to define event name and pass custom Event?
  - Where to create Listener?
  - How to inform Dispatcher to bind Listener with event?
 
-* Servces II
+* Services and Events [@service-container, @event, @event-dispatche, @event-listener]
  - Following knowledge from previous step, create new Event, Event Listener which will log the title of updated posts
  - Use logger service
  - Find out some features how to work with logger
+ 
+* Translations [@i18n, @translation, @l10n]
+ - In app/config.yml configure translator and default locale
+ - Add new controller action and routing with _locale parameter
+ - Add new translations file under your bundle
+ - Add sample string that should be translated
+ - Clear cache
+ - Find some console commands that you can use for I18n
 
-* Documentation
+* Documentation [@documentation]
  - In your Bundle create sample documentation following Symfony2 convention (`ReStructuredText  <http://docutils.sourceforge.net/docs/user/rst/quickstart.html>`_)
  - Find out some information on `Symfony2 page <http://symfony.com/doc/current/contributing/documentation/format.html>`_
  - Find out some information on `Sphinx page <http://sphinx-doc.org/tutorial.html>`_
+ 
+* Thin controllers, Services [@thin-controllers, @services]
+ - Propose the functionalities in auto-generated CRUD which can be moved from controllers
+ - Refactor form handling in controllers, by moving it out to service
 
-* Testing I
+* Testing [@testing, @unit-testing]
  - Create Unit Test for previously created Twig extension
  - Where it should be placed and how to use testing framework?
  - To test class, use PHPUnit data providers
