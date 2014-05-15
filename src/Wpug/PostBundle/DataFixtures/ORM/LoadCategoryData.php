@@ -4,6 +4,7 @@ namespace Wpug\CategoryBundle\DataFixtures\ORM;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Wpug\PostBundle\Entity\Category;
+use Coduo\PHPHumanizer\Number;
 
 class LoadCategoryData implements FixtureInterface
 {
@@ -16,7 +17,7 @@ class LoadCategoryData implements FixtureInterface
         $category = new Category();
         for ($i = 1; $i <= self::TIMES; $i++) {
             $_category = clone $category;
-            $_category->setName(sprintf('%d_%s', $i, \uniqid('', true)));
+            $_category->setName(sprintf('%s Category', Number::ordinalize($i)));
             $manager->persist($_category);
         }
         $manager->flush();

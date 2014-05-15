@@ -8,15 +8,15 @@ use Doctrine\ORM\Mapping as ORM;
 class User extends BaseUser
 {
     protected $id;
-    /*protected $pesel;
-    public function setPesel($pesel)
+    protected $apiKey;
+    public function setApiKey($apiKey)
     {
-        $this->pesel = $pesel;
+        $this->apiKey = $apiKey;
         
         return $this;
     }
-    public function getPesel()
+    public function getApiKey()
     {
-        return $this->pesel;
-    }*/
+        return $this->apiKey;
+    }
 }

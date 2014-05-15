@@ -3,8 +3,64 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "2f5a66b0a878c9b6a2a11bd05fd0750e",
+    "hash": "ea3d2c0ce617d140b7e5d70ca81ca8db",
     "packages": [
+        {
+            "name": "coduo/php-humanizer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/coduo/php-humanizer.git",
+                "reference": "673cc617a158c83056ae7d1647467ef771a4fdbf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/coduo/php-humanizer/zipball/673cc617a158c83056ae7d1647467ef771a4fdbf",
+                "reference": "673cc617a158c83056ae7d1647467ef771a4fdbf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "symfony/config": "~2.3",
+                "symfony/intl": "~2.3",
+                "symfony/translation": "~2.3"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "2.0.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michał Dąbrowski",
+                    "email": "dabrowski@brillante.pl",
+                    "homepage": "http://brillante.pl"
+                },
+                {
+                    "name": "Norbert Orzechowicz",
+                    "email": "norbert@orzechowicz.pl"
+                }
+            ],
+            "keywords": [
+                "humanize",
+                "humanizer",
+                "php"
+            ],
+            "time": "2014-05-12 11:40:02"
+        },
         {
             "name": "doctrine/annotations",
             "version": "v1.1.2",
@@ -1925,7 +1981,8 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "friendsofsymfony/user-bundle": 20
+        "friendsofsymfony/user-bundle": 20,
+        "coduo/php-humanizer": 20
     },
     "platform": {
         "php": ">=5.3.3"
