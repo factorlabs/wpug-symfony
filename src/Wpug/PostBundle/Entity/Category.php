@@ -18,6 +18,14 @@ class Category
      * @var string
      */
     private $name;
+    /**
+     * @var string
+     */
+    private $slug;
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $posts;
 
 
     /**
@@ -53,9 +61,27 @@ class Category
         return $this->name;
     }
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * Set slug
+     *
+     * @param string $slug
+     * @return Category
      */
-    private $posts;
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $slug;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
 
     /**
      * Constructor

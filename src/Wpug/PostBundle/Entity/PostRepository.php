@@ -12,4 +12,15 @@ use Doctrine\ORM\EntityRepository;
  */
 class PostRepository extends EntityRepository
 {
+    public function findByCategory($category) 
+    {
+        return $this->getEntityManager()->createQueryBuilder()
+                ->select('p', 'c')
+                ->from('WpugPostBundle:Post', 'p')
+                ->join('p.category', 'c')
+                ->where('c.id = :category')
+                ->setParameter('category', $category)
+                ->getQuery()
+                ->getResult();
+    }
 }

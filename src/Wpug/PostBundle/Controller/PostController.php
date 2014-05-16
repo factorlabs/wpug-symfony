@@ -32,6 +32,24 @@ class PostController extends Controller
         ));
     }
     /**
+     * Lists all Post entities by category.
+     *
+     */
+    public function indexByCategoryAction($category)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('WpugPostBundle:Post')->findByCategory($category);
+        
+        if (!$entities) {
+            throw $this->createNotFoundException('Unable to find Post entity.');
+        }
+
+        return $this->render('WpugPostBundle:Post:index.html.twig', array(
+            'entities' => $entities,
+        ));
+    }
+    /**
      * Creates a new Post entity.
      *
      */

@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new Wpug\UserBundle\WpugUserBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             // new FOS\RestBundle\FOSRestBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
