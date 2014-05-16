@@ -10,5 +10,8 @@
 /bin/
 /composer.phar
 
+!/bin/dbreload.bat
+!/bin/init.bat
+/app/data/*db3
 nbproject/*
 *~
