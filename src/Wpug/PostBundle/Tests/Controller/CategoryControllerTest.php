@@ -3,12 +3,35 @@
 namespace Wpug\PostBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\BrowserKit\Cookie;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+
 
 class CategoryControllerTest extends WebTestCase
 {
-    /*
+    private $client = null;
+
+    public function setUp()
+    {
+        $this->client = static::createClient();
+    }
+
+
+    private function logIn()
+    {
+        $session = $this->client->getContainer()->get('session');
+
+        $firewall = 'secured_area';
+        $token = new UsernamePasswordToken('admin', null, $firewall, array('ROLE_ADMIN'));
+        $session->set('_security_'.$firewall, serialize($token));
+        $session->save();
+
+        $cookie = new Cookie($session->getName(), $session->getId());
+        $this->client->getCookieJar()->set($cookie);
+    }
     public function testCompleteScenario()
     {
+        $this->logIn();
         // Create a new client to browse the application
         $client = static::createClient();
 
@@ -19,21 +42,20 @@ class CategoryControllerTest extends WebTestCase
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
-            'wpug_postbundle_categorytype[field_name]'  => 'Test',
-            // ... other fields to fill
+            'wpug_postbundle_category[name]'  => 'Foo',
         ));
 
         $client->submit($form);
         $crawler = $client->followRedirect();
 
         // Check data in the show view
-        $this->assertGreaterThan(0, $crawler->filter('td:contains("Test")')->count(), 'Missing element td:contains("Test")');
+        $this->assertGreaterThan(0, $crawler->filter('td:contains("Foo")')->count(), 'Missing element td:contains("Test")');
 
         // Edit the entity
         $crawler = $client->click($crawler->selectLink('Edit')->link());
 
-        $form = $crawler->selectButton('Edit')->form(array(
-            'wpug_postbundle_categorytype[field_name]'  => 'Foo',
+        $form = $crawler->selectButton('Update')->form(array(
+            'wpug_postbundle_category[name]'  => 'Foo',
             // ... other fields to fill
         ));
 
@@ -50,6 +72,4 @@ class CategoryControllerTest extends WebTestCase
         // Check the entity has been delete on the list
         $this->assertNotRegExp('/Foo/', $client->getResponse()->getContent());
     }
-
-    */
 }

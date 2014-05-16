@@ -10,7 +10,7 @@
       <generator strategy="UUID"/>
     </id>
     <field name="name" type="string" column="name" length="100"/>
-    <field name="slug" type="string" length="156" unique="true">
+    <field name="slug" type="string" length="156" unique="true" nullable="true">
         <gedmo:slug unique="true" updatable="false" separator="-" fields="name" />
     </field>
   </entity>
