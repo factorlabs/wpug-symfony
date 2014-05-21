@@ -18,5 +18,7 @@
     <route id="test_twig_basics" pattern="test-twig-basics">
         <default key="_controller">WpugPostBundle:Varia:testTwigBasics</default>
     </route>
-
+    <route id="test_doctrine_debug" pattern="test-doctrine-debug">
+        <default key="_controller">WpugPostBundle:Varia:testDoctrineDebug</default>
+    </route>
 </routes>
