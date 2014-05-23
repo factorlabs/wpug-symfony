@@ -24,6 +24,7 @@
         <service id="wpug.twig.price_filter_extension" class="Wpug\PostBundle\Twig\PriceFilterExtension">
             <tag name="twig.extension" />
         </service>
+        <service id="wpug.factorial" class="Wpug\PostBundle\Service\Factorial"/>
     </services>
 
 </container>

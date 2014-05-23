@@ -18,5 +18,9 @@
     <route id="test_twig_basics" pattern="test-twig-basics">
         <default key="_controller">WpugPostBundle:Varia:testTwigBasics</default>
     </route>
+    <route id="test_factorial" pattern="test-factorial/{number}">
+        <default key="_controller">WpugPostBundle:Varia:testFactorial</default>
+        <requirement key="name">\d</requirement>
+    </route>
 
 </routes>

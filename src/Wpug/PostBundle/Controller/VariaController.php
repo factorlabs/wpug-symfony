@@ -3,6 +3,7 @@
 namespace Wpug\PostBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
@@ -47,5 +48,11 @@ class VariaController extends Controller
         return $this->render('WpugPostBundle:Varia:testTwigBasics.html.twig',array(
             'item' => $obj,
         ));
+    }
+    public function testFactorialAction($number)
+    {
+        $factorial = $this->get('wpug.factorial');
+        
+        return new Response($factorial->calculate($number));
     }
 }
