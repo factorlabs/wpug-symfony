@@ -22,5 +22,7 @@
         <default key="_controller">WpugPostBundle:Varia:testFactorial</default>
         <requirement key="name">\d</requirement>
     </route>
-
+    <route id="test_doctrine_debug" pattern="test-doctrine-debug">
+        <default key="_controller">WpugPostBundle:Varia:testDoctrineDebug</default>
+    </route>
 </routes>

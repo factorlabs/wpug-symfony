@@ -5,6 +5,7 @@ namespace Wpug\PostBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Doctrine\Common\Util\Debug;
 
 /**
  * Varia controller.
@@ -49,10 +50,23 @@ class VariaController extends Controller
             'item' => $obj,
         ));
     }
+
     public function testFactorialAction($number)
     {
         $factorial = $this->get('wpug.factorial');
         
         return new Response($factorial->calculate($number));
+    }
+    /**
+     * Test Doctrine debug.
+     *
+     */
+    public function testDoctrineDebugAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('WpugPostBundle:Post')->findAll();
+        Debug::dump($entities);
+        exit;
     }
 }

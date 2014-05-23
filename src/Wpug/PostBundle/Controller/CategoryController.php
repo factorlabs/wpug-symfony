@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Wpug\PostBundle\Entity\Category;
 use Wpug\PostBundle\Form\CategoryType;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Category controller.
@@ -159,6 +160,12 @@ class CategoryController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('WpugPostBundle:Category')->find($id);
+        
+        $originalPosts = new ArrayCollection();
+        
+        foreach ($entity->getPosts() as $post) {
+            $originalPosts->add($post);
+        }
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Category entity.');
@@ -167,8 +174,25 @@ class CategoryController extends Controller
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
-
+        
         if ($editForm->isValid()) {
+            
+            foreach ($originalPosts as $post) {
+                if (false === $entity->getPosts()->contains($post)) {
+                    // remove the Task from the Tag
+                    $post->setCategory(null);
+
+                    // if it was a many-to-one relationship, remove the relationship like this
+                    // $tag->setTask(null);
+
+                    $em->persist($post);
+
+                    // if you wanted to delete the Tag entirely, you can also do that
+                    // $em->remove($tag);
+                }
+            }
+            
+            $em->persist($entity);
             $em->flush();
 
             return $this->redirect($this->generateUrl('category_edit', array('id' => $id)));

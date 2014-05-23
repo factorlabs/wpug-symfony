@@ -97,9 +97,10 @@ class Category
      * @param \Wpug\PostBundle\Entity\Post $posts
      * @return Category
      */
-    public function addPost(\Wpug\PostBundle\Entity\Post $posts)
+    public function addPost(\Wpug\PostBundle\Entity\Post $post)
     {
-        $this->posts[] = $posts;
+        $this->posts[] = $post;
+        $post->setCategory($this);
 
         return $this;
     }
@@ -109,9 +110,9 @@ class Category
      *
      * @param \Wpug\PostBundle\Entity\Post $posts
      */
-    public function removePost(\Wpug\PostBundle\Entity\Post $posts)
+    public function removePost(\Wpug\PostBundle\Entity\Post $post)
     {
-        $this->posts->removeElement($posts);
+        $this->posts->removeElement($post);
     }
 
     /**
