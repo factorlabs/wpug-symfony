@@ -115,7 +115,7 @@ class PostController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('WpugPostBundle:Post')->find($id);
-        
+        // @security, @voter
         if (false === $this->get('security.context')->isGranted('view', $entity)) {
             throw new AccessDeniedException('Unauthorised access!');
         }
@@ -194,6 +194,7 @@ class PostController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
             
+            // @event, @event-dispatche, @event-listener
             $dispatcher = $this->container->get('event_dispatcher');
             $dispatcher->dispatch('post.update', new PostEvent($entity));
 
