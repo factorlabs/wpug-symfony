@@ -1,0 +1,9 @@
+default:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url:  'http://youtube.com'
+      default_session: selenium
+      javascript_session: selenium
+      selenium:
+        host: localhost
+        port: 4444
