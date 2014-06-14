@@ -1,5 +1,5 @@
 <?php
-
+namespace Wpug\PostBundle\Annotation;
 /**
  * @Annotation
  * @Attributes({

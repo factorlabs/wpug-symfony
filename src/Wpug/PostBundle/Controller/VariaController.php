@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Doctrine\Common\Util\Debug;
+use Wpug\PostBundle\Annotation\RequiresCredits;
 
 /**
  * Varia controller.
@@ -74,6 +75,6 @@ class VariaController extends Controller
      */
     public function expensiveAction()
     {
-        die('123');
+        //die('123');
     }
 }

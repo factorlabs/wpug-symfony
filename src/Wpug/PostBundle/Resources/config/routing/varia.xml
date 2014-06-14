@@ -26,6 +26,6 @@
         <default key="_controller">WpugPostBundle:Varia:testDoctrineDebug</default>
     </route>
     <route id="test_annotation" pattern="test-annotation">
-        <default key="_controller">WpugPostBundle:Varia:expensiveAction</default>
+        <default key="_controller">WpugPostBundle:Varia:expensive</default>
     </route>
 </routes>

@@ -1,8 +1,7 @@
 <?php
 namespace Wpug\PostBundle\EventListener;
 
-use Matthias\CreditsBundle\Annotation\RequiresCredits;
-use Matthias\CreditsBundle\Exception\InsufficientCreditsException;
+use Wpug\PostBundle\Annotation\RequiresCredits;
 use Doctrine\Common\Annotations\Reader;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 
@@ -33,6 +32,7 @@ class CreditsListener
             return;
         }
         $amountOfCreditsRequired = $annotation->credits;
+	var_dump($amountOfCreditsRequired); exit;
         // somehow determine if the user can afford to call this action
         //$userCanAffordThis = ...;
 
