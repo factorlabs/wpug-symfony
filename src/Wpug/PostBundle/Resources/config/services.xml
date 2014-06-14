@@ -6,6 +6,7 @@
 
     <parameters>
         <parameter key="wpug_post.event_listener.post_logger.class">Wpug\PostBundle\EventListener\PostLogger</parameter>
+        <parameter key="wpug_post.event_listener.credits_logger.class">Wpug\PostBundle\EventListener\CreditsLogger</parameter>
     </parameters>
 
     <services>
@@ -25,6 +26,10 @@
             <tag name="twig.extension" />
         </service>
         <service id="wpug.factorial" class="Wpug\PostBundle\Service\Factorial"/>
+        <!-- @annotation -->
+        <service id="wpug_post.event_listener.credits_logger" class="%wpug_post.event_listener.credits_logger.class%">
+            <tag name="kernel.event_listener" event="kernel.request" method="onKernelController" />
+        </service>
     </services>
 
 </container>

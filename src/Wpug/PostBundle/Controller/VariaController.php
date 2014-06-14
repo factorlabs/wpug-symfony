@@ -69,4 +69,11 @@ class VariaController extends Controller
         Debug::dump($entities);
         exit;
     }
+    /**
+     * @RequiresCredits(100)
+     */
+    public function expensiveAction()
+    {
+        die('123');
+    }
 }
