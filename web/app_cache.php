@@ -22,12 +22,14 @@ require_once __DIR__.'/../app/AppKernel.php';
 require_once __DIR__.'/../app/AppCache.php';
 Debug::enable();
 
-$kernel = new AppKernel('prod', false);
+$kernel = new AppKernel('dev', false);
 $kernel->loadClassCache();
 // wrap the default AppKernel with the AppCache one
 $kernel = new AppCache($kernel);
 $request = Request::createFromGlobals();
 $response = $kernel->handle($request);
+
+/*
 $date = new DateTime();
 $date->modify('+600 seconds');
 
@@ -36,6 +38,12 @@ $response->setPublic();
 $response->setMaxAge(6000);
 $response->setSharedMaxAge(6000);
 $response->headers->addCacheControlDirective('must-revalidate', true);
+
+ */
+
+ 
 $response->send();
+echo str_repeat('-', 50)."\r\n";
+var_dump($kernel->getLog());
+echo str_repeat('-', 50)."\r\n";
 $kernel->terminate($request, $response);
-print_r($kernel->getLog());

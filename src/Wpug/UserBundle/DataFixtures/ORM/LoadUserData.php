@@ -26,8 +26,8 @@ class LoadUserData implements FixtureInterface, ContainerAwareInterface
     public function load(ObjectManager $manager)
     {
         
-        $manipulator = $this->container->get('wpug_user.util.user_manipulator');
+        //$manipulator = $this->container->get('wpug_user.util.user_manipulator');
         
-        $manipulator->create('admin', 'admin123', 'admin@wpug.pl', true, true, 'abc123');
+        //$manipulator->create('admin', 'admin123', 'admin@wpug.pl', true, true, 'abc123');
     }
 }

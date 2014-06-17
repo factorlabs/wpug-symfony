@@ -5,6 +5,10 @@
       <cascade>
         <cascade-all/>
       </cascade>
+      <lifecycle-callbacks>
+        <lifecycle-callback type="preUpdate"
+            method="setCreatedAtValue" />
+      </lifecycle-callbacks>
     </many-to-one>
     <id name="id" type="guid" column="id">
       <generator strategy="UUID"/>

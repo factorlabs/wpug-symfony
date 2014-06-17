@@ -7,6 +7,19 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Doctrine\Common\Util\Debug;
 use Wpug\PostBundle\Annotation\RequiresCredits;
+use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
+
+class User
+        {
+            public $account;
+            function getAccount() {
+                return $account;
+            }
+        }
+        class Account
+        {
+            public $ammount;
+        }
 
 /**
  * Varia controller.
@@ -75,6 +88,38 @@ class VariaController extends Controller
      */
     public function expensiveAction()
     {
+        // @annotation
         //die('123');
+    }
+    public function testCacheAction()
+    {
+        // @cache
+        $response = new Response();
+        $response->setMaxAge(5); //< 10 seconds! you can test this refreshing the page.
+        $response->setSharedMaxAge(5);
+        $response->setPublic();
+ 
+        return $this->render('WpugPostBundle:Varia:testCache.html.twig', array('rand'=>rand()), $response); //this twig renders a random number to test that the response is actually cached.
+ 
+    }
+    public function testExpressionLanguageAction()
+    {
+        $language = new ExpressionLanguage();
+        
+        $user = new User();
+        $account = new Account();
+        $account->amount = 20000;
+        $user->account = $account;
+        
+       $result = $language->evaluate(
+            'user.account.amount > 10000',
+            array(
+                'user' => $user,
+            )
+        );
+       var_dump($result);
+       exit;
+
+ 
     }
 }

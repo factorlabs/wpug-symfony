@@ -5,8 +5,9 @@ namespace Wpug\PostBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Post
- */
+ * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks
+ */ 
 class Post
 {
     /**
@@ -135,5 +136,12 @@ class Post
     public function __toString()
     {
         return $this->title;
+    }
+    /**
+     * @ORM\PreUpdate()
+     */
+    public function setCreatedAtValue()
+    {
+        return;
     }
 }
