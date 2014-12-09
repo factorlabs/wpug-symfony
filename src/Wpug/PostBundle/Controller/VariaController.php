@@ -80,8 +80,8 @@ class VariaController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('WpugPostBundle:Post')->findAll();
-        Debug::dump($entities);
-        exit;
+        //Debug::dump($entities);
+        //exit;
     }
     /**
      * @RequiresCredits(100)
@@ -117,8 +117,8 @@ class VariaController extends Controller
                 'user' => $user,
             )
         );
-       var_dump($result);
-       exit;
+       //var_dump($result);
+       //exit;
 
  
     }

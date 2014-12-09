@@ -14,7 +14,7 @@ class SearchIndexer
         // perhaps you only want to act on some "Product" entity
         if ($entity instanceof Post) {
             $words = explode(' ', $entity->getTitle());
-            var_dump($words); exit;
+            //var_dump($words); exit;
         }
     }
 }

@@ -176,10 +176,11 @@ class CategoryController extends Controller
         $editForm->handleRequest($request);
         
         if ($editForm->isValid()) {
-            
             foreach ($originalPosts as $post) {
+                
                 if (false === $entity->getPosts()->contains($post)) {
                     // remove the Task from the Tag
+                    
                     $post->setCategory(null);
 
                     // if it was a many-to-one relationship, remove the relationship like this
@@ -193,8 +194,8 @@ class CategoryController extends Controller
             }
             
             $em->persist($entity);
+            
             $em->flush();
-
             return $this->redirect($this->generateUrl('category_edit', array('id' => $id)));
         }
 
