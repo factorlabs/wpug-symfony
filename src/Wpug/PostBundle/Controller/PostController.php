@@ -115,10 +115,12 @@ class PostController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('WpugPostBundle:Post')->find($id);
+        
         // @security, @voter
         if (false === $this->get('security.context')->isGranted('view', $entity)) {
             throw new AccessDeniedException('Unauthorised access!');
         }
+         
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Post entity.');

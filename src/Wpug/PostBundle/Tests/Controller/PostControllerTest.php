@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class PostControllerTest extends WebTestCase
 {
-    /*
+    
     public function testCompleteScenario()
     {
         // Create a new client to browse the application
@@ -19,7 +19,8 @@ class PostControllerTest extends WebTestCase
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
-            'wpug_postbundle_posttype[field_name]'  => 'Test',
+            'wpug_postbundle_post[title]'  => 'Test',
+            'wpug_postbundle_post[body]'  => 'Some body',
             // ... other fields to fill
         ));
 
@@ -32,8 +33,8 @@ class PostControllerTest extends WebTestCase
         // Edit the entity
         $crawler = $client->click($crawler->selectLink('Edit')->link());
 
-        $form = $crawler->selectButton('Edit')->form(array(
-            'wpug_postbundle_posttype[field_name]'  => 'Foo',
+        $form = $crawler->selectButton('Update')->form(array(
+            'wpug_postbundle_post[title]'  => 'Foo',
             // ... other fields to fill
         ));
 
@@ -51,5 +52,5 @@ class PostControllerTest extends WebTestCase
         $this->assertNotRegExp('/Foo/', $client->getResponse()->getContent());
     }
 
-    */
+    
 }

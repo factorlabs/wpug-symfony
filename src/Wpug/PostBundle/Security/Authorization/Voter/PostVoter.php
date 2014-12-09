@@ -1,4 +1,6 @@
 <?php
+
+//@voter
 namespace Wpug\PostBundle\Security\Authorization\Voter;
 
 use Symfony\Component\Security\Core\Exception\InvalidArgumentException;
