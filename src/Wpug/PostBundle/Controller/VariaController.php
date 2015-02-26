@@ -58,7 +58,7 @@ class VariaController extends Controller
     {
         $obj = new \stdClass();
         $obj->href = "http://wpug.pl";
-        $obj->caption = "WPUG";
+        $obj->caption = "WPUG Caption";
 
         return $this->render('WpugPostBundle:Varia:testTwigBasics.html.twig',array(
             'item' => $obj,

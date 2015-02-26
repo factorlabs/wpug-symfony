@@ -2,7 +2,7 @@
 
 namespace Wpug\PostBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
+// use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Category
