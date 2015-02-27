@@ -1,7 +1,3 @@
-excence_blog:
-    resource: "@ExcenceBlogBundle/Resources/config/routing.xml"
-    prefix:   /excence
-
 wpug_user:
     resource: "@WpugUserBundle/Resources/config/routing.xml"
     prefix:   /
