@@ -33,7 +33,7 @@
         </service>
         <!-- @doctrine @doctrine-listener -->
         <service id="wpug_post.doctrine.listener" class="Wpug\PostBundle\EventListener\SearchIndexer">
-            <tag name="doctrine.event_listener" event="preUpdate" />
+            <tag name="doctrine.event_listener" event="postUpdate" />
         </service>
     </services>
 
