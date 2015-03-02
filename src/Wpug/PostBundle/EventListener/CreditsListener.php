@@ -32,7 +32,7 @@ class CreditsListener
             return;
         }
         $amountOfCreditsRequired = $annotation->credits;
-	//var_dump($amountOfCreditsRequired); exit;
+	var_dump($amountOfCreditsRequired); exit;
         // somehow determine if the user can afford to call this action
         //$userCanAffordThis = ...;
 

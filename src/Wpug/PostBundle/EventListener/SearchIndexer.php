@@ -20,6 +20,8 @@ class SearchIndexer
             $query->execute();
             $words = explode(' ', $entity->getTitle());
             foreach ($words as $word) {
+              //$stem = \Porter::Stem($word);
+              //var_dump($stem); exit;
               $found = $entityManager
                 ->getRepository('WpugPostBundle:SearchIndex')
                 ->findOneBy(array('post' => $entity->getId(), 'word' => $word));

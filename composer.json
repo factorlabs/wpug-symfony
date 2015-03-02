@@ -28,7 +28,8 @@
         "behat/mink": "*",
         "behat/mink-selenium-driver": "*",
         "behat/mink-selenium2-driver": "*",
-        "behat/mink-extension": "*"
+        "behat/mink-extension": "*",
+        "camspiers/porter-stemmer": "1.0.0"
     },
     "scripts": {
         "post-install-cmd": [

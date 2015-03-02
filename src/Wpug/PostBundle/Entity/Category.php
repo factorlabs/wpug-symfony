@@ -26,6 +26,14 @@ class Category
      * @var \Doctrine\Common\Collections\Collection
      */
     private $posts;
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->posts = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
 
     /**
@@ -81,14 +89,6 @@ class Category
     public function getSlug()
     {
         return $this->slug;
-    }
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->posts = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

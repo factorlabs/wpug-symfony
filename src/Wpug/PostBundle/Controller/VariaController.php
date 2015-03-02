@@ -8,18 +8,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Doctrine\Common\Util\Debug;
 use Wpug\PostBundle\Annotation\RequiresCredits;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
+use Wpug\PostBundle\Model\Customer;
+use Wpug\PostBundle\Model\Account;
 
-class User
-        {
-            public $account;
-            function getAccount() {
-                return $account;
-            }
-        }
-        class Account
-        {
-            public $ammount;
-        }
 
 /**
  * Varia controller.
@@ -104,22 +95,18 @@ class VariaController extends Controller
     }
     public function testExpressionLanguageAction()
     {
+        // @expression-language
         $language = new ExpressionLanguage();
         
-        $user = new User();
-        $account = new Account();
-        $account->amount = 20000;
-        $user->account = $account;
+        $customer = new Customer(new Account(5000));
         
-       $result = $language->evaluate(
-            'user.account.amount > 10000',
+        $result = $language->evaluate(
+            'customer.getAccount().getAmmount() > 10000',
             array(
-                'user' => $user,
+                'customer' => $customer,
             )
         );
-       //var_dump($result);
-       //exit;
-
- 
+        var_dump($result);
+        exit;
     }
 }

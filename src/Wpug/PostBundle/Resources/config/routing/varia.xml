@@ -31,6 +31,7 @@
     <route id="test_cache" pattern="test-cache">
         <default key="_controller">WpugPostBundle:Varia:testCache</default>
     </route>
+    <!-- // @expression-language -->
     <route id="test_expression_language" pattern="test-expression-language">
         <default key="_controller">WpugPostBundle:Varia:testExpressionLanguage</default>
     </route>
