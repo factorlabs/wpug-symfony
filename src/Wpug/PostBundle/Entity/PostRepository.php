@@ -19,6 +19,8 @@ class PostRepository extends EntityRepository
                 ->from('WpugPostBundle:Post', 'p')
                 ->join('p.category', 'c')
                 ->where('c.id = :category')
+                ->where('p.title LIKE :word')
+                ->setParameter('word', '%'.$word.'%')
                 ->setParameter('category', $category)
                 ->getQuery()
                 ->getResult();

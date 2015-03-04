@@ -162,7 +162,7 @@ class CategoryController extends Controller
         $entity = $em->getRepository('WpugPostBundle:Category')->find($id);
         
         $originalPosts = new ArrayCollection();
-        
+
         foreach ($entity->getPosts() as $post) {
             $originalPosts->add($post);
         }
