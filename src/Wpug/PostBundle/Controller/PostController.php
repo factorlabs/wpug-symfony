@@ -146,8 +146,11 @@ class PostController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Post entity.');
         }
+            
+        
+        // @forms @role-based-form
+        $editForm = $this->createExtendedEditForm($entity);
 
-        $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('WpugPostBundle:Post:edit.html.twig', array(
@@ -176,9 +179,30 @@ class PostController extends Controller
         return $form;
     }
     /**
+    * 
+    * Creates a extended form to edit a Post entity.
+    *
+    * @param Post $entity The entity
+    *
+    * @return \Symfony\Component\Form\Form The form
+    */
+    // @forms @role-based-form
+    private function createExtendedEditForm(Post $entity)
+    {
+        $form = $this->createForm($this->get('wpug_post.form.type.post_extended'), $entity, array(
+            'action' => $this->generateUrl('post_update', array('id' => $entity->getId())),
+            'method' => 'PUT',
+        ));
+
+        $form->add('submit', 'submit', array('label' => 'Update'));
+
+        return $form;
+    }
+    /**
      * Edits an existing Post entity.
      *
      */
+    // @forms @role-based-form
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -190,7 +214,7 @@ class PostController extends Controller
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createEditForm($entity);
+        $editForm = $this->createExtendedEditForm($entity);
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {

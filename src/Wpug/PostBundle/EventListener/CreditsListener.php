@@ -1,6 +1,6 @@
 <?php
 namespace Wpug\PostBundle\EventListener;
-
+// @nnotation
 use Wpug\PostBundle\Annotation\RequiresCredits;
 use Doctrine\Common\Annotations\Reader;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;

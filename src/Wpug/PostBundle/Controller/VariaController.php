@@ -71,7 +71,7 @@ class VariaController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('WpugPostBundle:Post')->findAll();
-        //Debug::dump($entities);
+        Debug::dump($entities);
         //exit;
     }
     /**
@@ -80,7 +80,7 @@ class VariaController extends Controller
     public function expensiveAction()
     {
         // @annotation
-        //die('123');
+        die('123');
     }
     public function testCacheAction()
     {
@@ -97,11 +97,21 @@ class VariaController extends Controller
     {
         // @expression-language
         $language = new ExpressionLanguage();
+        $language->register('date', function ($str) {
+            return sprintf('(is_string(%1$s) ? %1$s : %1$s)', $str);
+        }, function ($arguments, $str) {
+            if (!is_string($str)) {
+                return $str;
+            }
+
+            return date($str);
+        });
+        
         
         $customer = new Customer(new Account(5000));
         
         $result = $language->evaluate(
-            'customer.getAccount().getAmmount() > 10000',
+            'date("Y-m-d")',
             array(
                 'customer' => $customer,
             )

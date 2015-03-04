@@ -3,6 +3,8 @@
 namespace Wpug\PostBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\BrowserKit\Cookie;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 class PostControllerTest extends WebTestCase
 {
@@ -31,7 +33,8 @@ class PostControllerTest extends WebTestCase
         $this->assertGreaterThan(0, $crawler->filter('td:contains("Test")')->count(), 'Missing element td:contains("Test")');
 
         // Edit the entity
-        $crawler = $client->click($crawler->selectLink('Edit')->link());
+        //var_dump($crawler->selectLink('Edit')->link()); exit;
+        $crawler = $client->click($crawler->filter('a:contains("Edit")')->first());
 
         $form = $crawler->selectButton('Update')->form(array(
             'wpug_postbundle_post[title]'  => 'Foo',

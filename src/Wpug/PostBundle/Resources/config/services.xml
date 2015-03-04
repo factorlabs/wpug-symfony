@@ -28,8 +28,13 @@
         <service id="wpug.factorial" class="Wpug\PostBundle\Service\Factorial"/>
         <!-- @annotation -->
         <service id="wpug_post.event_listener.credits" class="%wpug_post.event_listener.credits.class%">
-	    <argument type="service" id="annotation_reader"/>
+            <argument type="service" id="annotation_reader"/>
             <tag name="kernel.event_listener" event="kernel.controller" method="onKernelController" />
+        </service>
+        <!-- // @forms @role-based-form -->
+        <service id="wpug_post.form.type.post_extended" class="Wpug\PostBundle\Form\PostExtendedType">
+            <argument type="service" id="security.context"/>
+            <tag name="form.type" alias="post_extended_type" />
         </service>
         <!-- @doctrine @doctrine-listener -->
         <service id="wpug_post.doctrine.listener" class="Wpug\PostBundle\EventListener\SearchIndexer">
