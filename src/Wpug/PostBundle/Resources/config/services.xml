@@ -40,6 +40,12 @@
         <service id="wpug_post.doctrine.listener" class="Wpug\PostBundle\EventListener\SearchIndexer">
             <tag name="doctrine.event_listener" event="postUpdate" />
         </service>
+        
+        <service id="wpug_post.event_listener.legacy_url" class="Wpug\PostBundle\EventListener\LegacyUrlRedirect">
+            <argument type="service" id="router"/>
+            <argument type="service" id="service_container"/>
+            <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest"/>
+        </service>
     </services>
 
 </container>

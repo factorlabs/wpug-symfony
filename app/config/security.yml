@@ -25,7 +25,7 @@ security:
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
         # - { path: ^/category, role: ROLE_ADMIN }
-        - { path: ^/category/([a-zA-Z0-9\-])+/edit, role: ROLE_ADMIN }
+        # - { path: ^/category/([a-zA-Z0-9\-])+/edit, role: ROLE_ADMIN }
     access_decision_manager:
         # strategy can be: affirmative, unanimous or consensus
         # strategy: unanimous

@@ -29,13 +29,14 @@ class CategoryControllerTest extends WebTestCase
 
         // Check data in the show view
         $this->assertGreaterThan(0, $crawler->filter('td:contains("Foo")')->count(), 'Missing element td:contains("Test")');
-
-        // Edit the entity
-        $crawler = $client->click($crawler->selectLink('Edit')->link());
+        
+        $link = $crawler->filter('a:contains("Edit")')->eq(0)->link();
+        
+        $crawler = $client->click($link);
+        //var_dump($client->getResponse()->getContent()); exit;
 
         $form = $crawler->selectButton('Update')->form(array(
             'wpug_postbundle_category[name]'  => 'Foo',
-            // ... other fields to fill
         ));
 
         $client->submit($form);

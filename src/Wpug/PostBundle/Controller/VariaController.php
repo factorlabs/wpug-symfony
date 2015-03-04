@@ -93,6 +93,10 @@ class VariaController extends Controller
         return $this->render('WpugPostBundle:Varia:testCache.html.twig', array('rand'=>rand()), $response); //this twig renders a random number to test that the response is actually cached.
  
     }
+    public function testLegacyUrlRedirectAction()
+    {
+        return $this->render('WpugPostBundle:Varia:testLegacyUrlRedirect.html.twig');
+    }
     public function testExpressionLanguageAction()
     {
         // @expression-language

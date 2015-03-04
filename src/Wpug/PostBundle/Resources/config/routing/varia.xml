@@ -35,4 +35,7 @@
     <route id="test_expression_language" pattern="test-expression-language">
         <default key="_controller">WpugPostBundle:Varia:testExpressionLanguage</default>
     </route>
+    <route id="tweet" pattern="tweet">
+        <default key="_controller">WpugPostBundle:Varia:testLegacyUrlRedirect</default>
+    </route>
 </routes>
