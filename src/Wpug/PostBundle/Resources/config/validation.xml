@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<constraint-mapping xmlns="http://symfony.com/schema/dic/constraint-mapping"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping http://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd">
+    <!-- @validation -->
+    <class name="Wpug\PostBundle\Entity\Category">
+        <property name="name">
+            <constraint name="Wpug\PostBundle\Validator\Constraints\NotToLong">
+              <option name="length">5</option>
+            </constraint>
+        </property>
+    </class>
+</constraint-mapping> 
