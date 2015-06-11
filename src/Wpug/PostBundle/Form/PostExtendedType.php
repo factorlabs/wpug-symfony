@@ -2,7 +2,7 @@
 // @forms @role-based-form
 namespace Wpug\PostBundle\Form;
 
-use Symfony\Component\Security\Core\SecurityContext;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -12,7 +12,7 @@ class PostExtendedType extends AbstractType
 
     private $securityContext;
 
-    public function __construct(SecurityContext $securityContext)
+    public function __construct(TokenStorage $securityContext)
     {
         $this->securityContext = $securityContext;
     }

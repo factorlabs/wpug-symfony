@@ -33,7 +33,7 @@
         </service>
         <!-- // @forms @role-based-form -->
         <service id="wpug_post.form.type.post_extended" class="Wpug\PostBundle\Form\PostExtendedType">
-            <argument type="service" id="security.context"/>
+            <argument type="service" id="security.token_storage"/>
             <tag name="form.type" alias="post_extended_type" />
         </service>
         <!-- @doctrine @doctrine-listener -->

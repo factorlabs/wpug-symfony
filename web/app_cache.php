@@ -18,9 +18,9 @@ if (isset($_SERVER['HTTP_CLIENT_IP'])
 }
 
 $loader = require_once __DIR__.'/../app/bootstrap.php.cache';
-require_once __DIR__.'/../app/AppKernel.php';
+// require_once __DIR__.'/../app/AppKernel.php';
 require_once __DIR__.'/../app/AppCache.php';
-Debug::enable();
+//Debug::enable();
 
 $kernel = new AppKernel('dev', false);
 $kernel->loadClassCache();
