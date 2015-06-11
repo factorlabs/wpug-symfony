@@ -5,21 +5,24 @@
   <property name="sourcedir" value="${basedir}/src" />
   <property name="builddir" value="${workspace}/app/build" />
 
+  <!-- <target name="build"
+  depends="prepare,vendors,parameters,lint,phploc,pdepend,phpcpd,phpmd-ci,phpcs-ci,phpdoc,phpunit,phpcb"/> -->
+
   <target name="build"
-  depends="prepare,vendors,parameters,lint,phploc,pdepend,phpcpd,phpmd-ci,phpcs-ci,phpdoc,phpunit,phpcb"/>
+  depends="prepare, pdepend, phpmd-ci"/>
+  <!-- <target name="build-parallel" depends="prepare,lint,tools-parallel,phpunit,phpcb"/> -->
 
-  <target name="build-parallel" depends="prepare,lint,tools-parallel,phpunit,phpcb"/>
-
+  
   <target name="tools-parallel" description="Run tools in parallel">
     <parallel threadCount="2">
       <sequential>
         <antcall target="pdepend"/>
         <antcall target="phpmd-ci"/>
       </sequential>
-      <antcall target="phpcpd"/>
+      <!-- <antcall target="phpcpd"/>
       <antcall target="phpcs-ci"/>
       <antcall target="phploc"/>
-      <antcall target="phpdoc"/>
+      <antcall target="phpdoc"/> -->
     </parallel>
   </target>
 
@@ -39,7 +42,7 @@
     <mkdir dir="${builddir}/logs"/>
     <mkdir dir="${builddir}/pdepend"/>
   </target>
-
+  <!--
   <target name="lint" description="Perform syntax check of sourcecode files">
     <apply executable="php" failonerror="true">
     <arg value="-l" />
@@ -60,7 +63,8 @@
     <arg value="${builddir}/logs/phploc.csv" />
     <arg path="${sourcedir}" />
     </exec>
-  </target>
+    </target>
+    -->
 
   <target name="pdepend" description="Calculate software metrics using PHP_Depend">
     <exec executable="pdepend">
@@ -69,7 +73,7 @@
       <arg value="--overview-pyramid=${builddir}/pdepend/overview-pyramid.svg" />
       <arg path="${sourcedir}" />
     </exec>
-  </target>
+    </target>
 
   <target name="phpmd" description="Perform project mess detection using PHPMD and print human readable output. Intended for usage on the command line before committing.">
     <exec executable="phpmd">
@@ -78,7 +82,7 @@
       <arg value="${workspace}/app/phpmd.xml" />
     </exec>
   </target>
-
+  
   <target name="phpmd-ci" description="Perform project mess detection using PHPMD creating a log file for the continuous integration server">
     <exec executable="phpmd">
       <arg path="${sourcedir}" />
@@ -88,7 +92,7 @@
       <arg value="${builddir}/logs/pmd.xml" />
     </exec>
   </target>
-
+  <!--
   <target name="phpcs" description="Find coding standard violations using PHP_CodeSniffer and print human readable output. Intended for usage on the command line before committing.">
     <exec executable="phpcs">
       <arg value="--standard=Symfony2" />
@@ -150,5 +154,6 @@
       <arg path="app/config/parameters.yml" />
     </exec>
   </target>
+  -->
 
 </project>
