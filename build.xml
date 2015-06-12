@@ -6,7 +6,7 @@
   <property name="builddir" value="${workspace}/app/build" />
 
   <target name="build"
-  depends="prepare,lint,pdepend,phpmd-ci,phpcs-ci,phpunit"/>
+  depends="prepare,lint,vendors,pdepend,phpmd-ci,phpcs-ci,phpunit"/>
 
 
   <target name="build-parallel" depends="prepare,lint,tools-parallel,phpunit,phpcb"/>
@@ -129,7 +129,7 @@
     </exec>
     <exec executable="phpunit" failonerror="true">
       <arg value="-c" />
-      <arg path="${basedir}/app/phpunit.xml" />
+      <!-- <arg path="${basedir}/app/phpunit.xml" /> -->
     </exec>
   </target>
 
@@ -145,8 +145,7 @@
   </target>
 
   <target name="vendors" description="Update vendors">
-    <exec executable="php" failonerror="true">
-        <arg value="composer.phar" />
+    <exec executable="composer" failonerror="true">
         <arg value="update" />
     </exec>
   </target>
