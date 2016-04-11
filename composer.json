@@ -21,7 +21,7 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "doctrine/doctrine-fixtures-bundle": "2.2.*",
         "friendsofsymfony/user-bundle": "~2.0@dev",
-        "friendsofsymfony/rest-bundle": "1.6.*",
+        "friendsofsymfony/rest-bundle": "^1.7",
         "coduo/php-humanizer": "dev-master",
         "stof/doctrine-extensions-bundle": "~1.2@dev",
         "behat/behat": "@stable",
