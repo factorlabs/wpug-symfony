@@ -21,7 +21,7 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "doctrine/doctrine-fixtures-bundle": "2.2.*",
         "friendsofsymfony/user-bundle": "~2.0@dev",
-        "friendsofsymfony/rest-bundle": "^1.7",
+        "friendsofsymfony/rest-bundle": "^1.7.8",
         "coduo/php-humanizer": "dev-master",
         "stof/doctrine-extensions-bundle": "~1.2@dev",
         "behat/behat": "@stable",
@@ -29,7 +29,8 @@
         "behat/mink-extension": "@stable",
         "behat/mink-selenium-driver": "*",
         "behat/mink-selenium2-driver": "*",
-        "camspiers/porter-stemmer": "1.0.0"
+        "camspiers/porter-stemmer": "1.0.0",
+        "jms/serializer-bundle": "1.1.0"
     },
     "scripts": {
         "post-install-cmd": [

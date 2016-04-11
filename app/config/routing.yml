@@ -1,3 +1,8 @@
+wpug_api:
+    resource: "@WpugApiBundle/Controller/"
+    type:     annotation
+    prefix:   /api/v1
+
 wpug_user:
     resource: "@WpugUserBundle/Resources/config/routing.xml"
     prefix:   /

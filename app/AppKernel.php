@@ -23,7 +23,8 @@ class AppKernel extends Kernel
             // @rest-bundle
             new FOS\RestBundle\FOSRestBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
-            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle()
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new Wpug\ApiBundle\WpugApiBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

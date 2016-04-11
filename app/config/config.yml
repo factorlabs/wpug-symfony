@@ -105,3 +105,12 @@ stof_doctrine_extensions:
     default_locale: en_US
     orm:
         default: ~
+fos_rest:
+    param_fetcher_listener: true
+    body_listener: true
+    format_listener:
+        enabled: true
+        rules:
+            - { path: '^/', priorities: ['json'], fallback_format: 'html' }
+    view:
+        view_response_listener: 'force'
